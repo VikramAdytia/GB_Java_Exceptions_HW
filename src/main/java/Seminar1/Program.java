@@ -12,6 +12,8 @@ public class Program {
 
 		getFactorial(0);
 
+		task2_1();
+
 		task2_2();
 
 
@@ -68,29 +70,48 @@ public class Program {
 	}
 
 
-	public static void task2_2(){
-	try {
-		int [] arr1 = generateArray();
-		int [] arr2 = generateArray();
-		int [] result = new ProcessArray().arraysDifference(arr1, arr2);
-		for (int a1 : arr1) System.out.printf("%d\t", a1);
-		System.out.println();
-		for (int a2 : arr2) System.out.printf("%d\t", a2);
-		System.out.println();
-		System.out.println("Разности элементов двух массивов равна:");
-		for (int i : result) System.out.printf("%d\t", i);
-	} catch (ProcessArray.CustomArraySizeException e) {
-		System.out.println(e.getClass().getName());
-		System.out.println(e.getMessage());
-		System.out.printf(
-				"Длина первого массива: %d\nДлина второго массива: %d\n",
-				e.getLength1(), e.getLength2());
-	} catch (ProcessArray.CustomDivideException e) {
-		System.out.println(e.getClass().getName());
-		System.out.println(e.getMessage());
-		System.out.printf("Элемент по индексу %d равен нулю", e.getElement());
+	static void task2_1(){
+		try {
+			int [] arr1 = generateArray();
+			int [] arr2 = generateArray();
+			int [] result = new ProcessArray().arraysDifference(arr1, arr2);
+			for (int a1 : arr1) System.out.printf("%d\t", a1);
+			System.out.println();
+			for (int a2 : arr2) System.out.printf("%d\t", a2);
+			System.out.println();
+			System.out.println("Разница элементов двух массивов равна:");
+			for (int i : result) System.out.printf("%d\t", i);
+		} catch (ProcessArray.CustomArraySizeException e) {
+			System.out.println(e.getMessage());
+			System.out.printf(
+					"Длина первого массива: %d\nДлина второго массива: %d\n",
+					e.getLength1(), e.getLength2());
+		}
 	}
-}
+
+	static void task2_2(){
+		try {
+			int [] arr1 = generateArray();
+			int [] arr2 = generateArray();
+			int [] result = new ProcessArray().arraysDivide(arr1, arr2);
+			for (int a1 : arr1) System.out.printf("%d\t", a1);
+			System.out.println();
+			for (int a2 : arr2) System.out.printf("%d\t", a2);
+			System.out.println();
+			System.out.println("Частное элементов двух массивов равна:");
+			for (int i : result) System.out.printf("%d\t", i);
+		} catch (ProcessArray.CustomArraySizeException e) {
+			System.out.println(e.getClass().getName());
+			System.out.println(e.getMessage());
+			System.out.printf(
+					"Длина первого массива: %d\nДлина второго массива: %d\n",
+					e.getLength1(), e.getLength2());
+		} catch (ProcessArray.CustomDivideException e) {
+			System.out.println(e.getClass().getName());
+			System.out.println(e.getMessage());
+			System.out.printf("Элемент по индексу %d равен нулю", e.getElement());
+		}
+	}
 
 	public static int [] generateArray() {
 		Random random = new Random();
