@@ -5,6 +5,9 @@ import java.util.Random;
 
 public class Program {
 	public static void main(String[] args) {
+
+		task1_1(null);
+
 		cats();
 
 		getFactorial(0);
@@ -14,7 +17,18 @@ public class Program {
 
 	}
 
-	private static void cats() {
+
+	public static void task1_1(String nul ) {
+		if (nul == null) {
+			try {
+				throw new NullPointerException(" не существует");
+			} catch (NullPointerException e) {
+				System.out.println(e);
+			}
+		}
+	}
+
+	public static void cats() {
 		int catNumber;
 		int zero;
 
@@ -38,7 +52,7 @@ public class Program {
 
 		int result=1;
 		try{
-			if(num<1) throw new Exception("The number is less than 1");
+			if(num<1) throw new Exception("Неверный искомый факториал");
 
 			for(int i=1; i<=num;i++){
 
